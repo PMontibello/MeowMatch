@@ -50,12 +50,23 @@ petController.addPet = async (req, res, next) => {
       description,
       url,
     });
+    console.log(req.body)
     next();
   } catch (error) {
     res.status(500).send('Error adding pet');
   }
-};
-
+};  
+petController.uploadPet = async (req, res, next) =>{
+  console.log('Step two!')
+  console.log('Request body:',req.body)
+  try {
+    res.locals.body = 'smile'
+  next();
+  }
+  catch(error){
+    res.status(500).send('Pedro goofed the upload')
+  }
+}
 //update a post/pet
 petController.updatePet = async (req, res, next) => {
   try {

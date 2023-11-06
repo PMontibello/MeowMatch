@@ -2,7 +2,7 @@ const express = require('express');
 const petController = require('../controllers/petController');
 const userController = require('../controllers/userController');
 const router = express.Router();
-
+const multer = require('multer');
 // router.get('/pets', petController.getPets);
 
 // router.post('/pets', petController.addPet);
@@ -20,6 +20,15 @@ router.get('/:name', petController.getPetByName, (req, res) => {
 router.post('/pets', petController.addPet, (req, res) => {
   res.status(201).json(res.locals.newPet);
 });
+router.get('/client/public/images', (req, res)=>{
+  console.log('Attempting to serve images')
+  res.status(200)
+})
+router.post('/client/public/images', petController.uploadPet, (req, res)=>{
+  console.log('attempting to post image')
+
+  res.status(201).json(res.locals.body);
+})
 
 router.patch('/:name', petController.updatePet, (req, res) => {
   res.status(200).json(res.locals.updatedPet);

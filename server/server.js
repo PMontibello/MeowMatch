@@ -30,8 +30,11 @@ app.use(
 
 app.use(express.static(path.join(__dirname, '../client/public')));
 
+
 // define route handler
 app.use('/', router);
+
+
 
 // Route handler to respond with main app
 app.get('*', (req, res) => {

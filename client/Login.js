@@ -37,7 +37,7 @@ const Login = () => {
           handleLogin();
         }}
       >
-        <h2><i class="fa fa-paw"></i> Meowmatch <i class="fa fa-paw"></i></h2>
+        <h2><i className="fa fa-paw"></i> Meowmatch <i className="fa fa-paw"></i></h2>
         {error && <p>{error}</p>}
         <input
           type="text"
